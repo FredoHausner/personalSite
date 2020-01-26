@@ -1,0 +1,612 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  overflow-x: scroll;
+  user-select: none;
+}
+
+#MainHeader {
+  width: 100%;
+  height: 20%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#HeaderTop {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  height: 70%;
+  /* padding-top: 2%; */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  letter-spacing: 2px;
+  font-size: 30px;
+  padding-top: 20px;
+  /* border: 1px solid black; */
+}
+
+#HeaderTop > h1 {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: lighter;
+  margin: 0;
+  /* margin-top: 1%; */
+}
+
+#HeaderTop > p {
+  margin: 0;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* #HeaderTop > h1 {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  height: 50%;
+  padding-top: 2%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  font-size: 30px;
+}
+
+#HeaderTop > p {
+  display: block;
+} */
+
+#HeaderBottom {
+  font-family: "Abel", sans-serif;
+  width: 20%;
+  height: 20%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: -10px;
+}
+
+#HeaderBottom > h4 {
+  color: grey;
+  font-size: 14px;
+  border-bottom: 1px solid grey;
+  padding-bottom: 1px;
+}
+
+#ProjectMain {
+  width: 100%;
+}
+
+#ParallaxContainer {
+  width: 95%;
+  margin: auto;
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 200px;
+  background-image: url("../images/building.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#ProjectContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+#ProjectContainerHeader {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  width: 100%;
+  height: 80px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#ProjectContainerContent {
+  width: 100vw;
+  height: calc(100% - 80px);
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-points-x: repeat(90vw);
+  scroll-snap-type: x mandatory;
+}
+
+.projectTile {
+  width: 320px;
+  height: 500px;
+  flex: none;
+  position: relative;
+  border-radius: 7px;
+  scroll-snap-align: center;
+  margin: 0 2vw;
+  perspective: 1000px;
+}
+
+.flipper {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.43);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.43);
+
+  position: absolute;
+  
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
+
+  -ms-transition: 0.6s;
+  -ms-transform-style: preserve-3d;
+
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+
+#ChatTileFront {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.infoButton {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: -35px;
+  transform: rotateY(0deg) !important;
+  background-image: url('../images/infoIconLight.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.infoButton:hover {
+  cursor: pointer;
+}
+
+.infoClicked {
+  background-image: url('../images/infoIconDark.png') !important;
+}
+
+#PincodeTileInfoButton, #ChatTileInfoButton {
+  left: calc(50% - 15px);
+}
+
+.tileHidden {
+  display: none !important;
+}
+
+#PincodeTileFront {
+  width: 320px;
+  height: 500px;
+  flex: none;
+}
+
+#PincodeTileBack {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
+
+#SudokuTileFront {
+  width: 320px;
+  height: 500px;
+  flex: none;
+  text-align: center;
+}
+
+#SudokuTileBack, #ChatTileBack, #PincodeTileBack {
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg) !important;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.TileBackHeader {
+  font-family: "Raleway", sans-serif;
+  height: 10%;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.TileBackHeader > hr {
+  margin-top: 15px;
+  width: 30%;
+}
+
+.TileBackBody {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 11px;
+  width: 65%;
+  height: 75%;
+  text-align: center;
+  /* padding-top: 15px; */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.TileBackBody > p {
+  margin: 0;
+}
+
+.FlipTile {
+  transform: rotateY(-180deg);
+}
+
+#AboutMain {
+  width: 100%;
+}
+
+#AboutContainer {
+  /* border: 1px solid black; */
+  width: 100%;
+  /* height: 40vh; */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#ShortSummary {
+  font-size: 16px;
+  width: 350px;
+  /* height: 100%; */
+  color: #505050;
+  font-family: "Abel", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#ShortSummary > p {
+  width: 230px;
+  font-size: 12px;
+}
+
+#ResumeDownloadButton {
+  color: #463e3e;
+  margin-top: 50px;
+  border-radius: 3px;
+  border: 1px solid #00000085;
+  padding: 5px 4px;
+  text-decoration: none;
+}
+
+#ResumeDownloadButton:hover {
+  cursor: pointer;
+}
+
+#EmailFormContainer {
+  font-family: "Abel", sans-serif;
+  position: relative;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin-top: 65px;
+}
+
+#ContactHeader {
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+#EmailFormContainer > input {
+  width: 344px;
+  height: 20px;
+  margin-bottom: 30px;
+  border-radius: 3px;
+  border: 1px solid darkgrey;
+  font-size: 16px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+#ContentInput {
+  font-size: 16px;
+  display: block;
+  border: 1px solid darkgrey;
+  border-radius: 3px;
+  resize: none;
+  width: 344px;
+}
+
+#SubmitFormButton {
+  width: 100px;
+  height: 20px;
+  border: 1px solid #00000085;
+  border-radius: 3px;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  /* -webkit-box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.38);
+  box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.38); */
+}
+
+#SubmitFormButton:hover {
+  cursor: pointer;
+}
+
+/* #EmailFormContainer > input:last-of-type {
+  width: 350px;
+  height: 200px;
+  margin-bottom: 15px;
+} */
+
+.emailVisual {
+  position: absolute;
+  top: 79px;
+  left: 7px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.emailBoxFilled {
+  top: 58px;
+  left: 5px;
+  font-size: 12px;
+}
+
+.contentVisual {
+  position: absolute;
+  top: 135px;
+  left: 7px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.contentBoxFilled {
+  top: 112px;
+  left: 4px;
+  font-size: 12px;
+}
+
+.inactive {
+  display: none !important;
+}
+
+@media only screen and (min-device-width: 1300px) {
+    .link:hover {
+    color: black !important;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+}
+
+@media only screen and (max-device-width: 1366px) {
+  #ParallaxContainer {
+    background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-device-width: 1100px) {
+  #ProjectContainerContent {
+    justify-content: flex-start;
+  }
+
+  .projectTile:first-of-type {
+    margin-left: 5vw;
+  }
+
+  .projectTile:last-of-type::after {
+    width: 5vw;
+    height: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -5vw;
+  }
+}
+
+@media only screen and (max-device-width: 390px) {
+  .projectTile {
+    width: 90vw;
+  }
+  #HeaderBottom {
+    width: 60% !important;
+  }
+
+  #ParallaxContainer {
+    height: 150px !important;
+    margin-bottom: 100px !important;
+  }
+
+  .projectTile:last-of-type::after {
+    width: 5vw;
+    height: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -5vw;
+  }
+}
+
+@media only screen and (max-device-width: 440px) {
+  .projectTile {
+    width: 86vw;
+  }
+
+  .projectTile:first-of-type {
+    margin-left: 6vw;
+  }
+
+  #HeaderBottom {
+    width: 60% !important;
+  }
+
+  #ParallaxContainer {
+    height: 150px !important;
+    margin-bottom: 100px !important;
+  }
+
+  .projectTile:last-of-type::after {
+    width: 5vw;
+    height: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -6vw;
+  }
+}
+
+@media only screen and (max-device-width: 400px) {
+  #EmailInput {
+    width: 309px !important;
+  }
+
+  #ContentInput {
+    width: 310px !important;
+  }
+
+  .contentVisual {
+    top: 140px !important;
+    left: 7px !important;
+  }
+
+  .emailVisual {
+    top: 83px !important;
+    left: 7px !important;
+  }
+
+  .emailBoxFilled {
+    top: 58px !important;
+    left: 5px !important;
+    font-size: 12px !important;
+  }
+
+  .contentBoxFilled {
+    top: 112px !important;
+    left: 4px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-device-width: 390px) {
+  .projectTile {
+    width: 90vw;
+  }
+
+  .projectTile:first-of-type {
+    margin-left: 5vw;
+  }
+
+  #HeaderBottom {
+    width: 60% !important;
+  }
+
+  #ParallaxContainer {
+    height: 150px !important;
+    margin-bottom: 100px !important;
+  }
+
+  .projectTile:last-of-type::after {
+    width: 5vw;
+    height: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -5vw;
+  }
+}
+
+@media only screen and (max-device-width: 320px) {
+  #HeaderTop > h1 {
+    font-size: 25px !important;
+  }
+
+  #HeaderTop > p {
+    font-size: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  #HeaderBottom > h4 {
+    font-size: 11px !important;
+  }
+
+  #ParallaxContainer {
+    height: 120px !important;
+    margin-bottom: 60px !important;
+  }
+
+  #ProjectContainerHeader {
+    font-size: 15px !important;
+  }
+
+  .projectTile {
+    height: 450px !important;
+  }
+
+  #ConfettiCanvas {
+    height: 450px !important;
+    width: 288px !important;
+  }
+
+  #SudokuNumbersContainer {
+    align-items: flex-end !important;
+  }
+}

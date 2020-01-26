@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>fredo || website</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:300&display=swap" rel="stylesheet" />
+
+  <link href="./styles/styles.css" rel="stylesheet" />
+  <link href="./styles/chat.css" rel="stylesheet" />
+  <link href="./styles/pincode.css" rel="stylesheet" />
+  <link href="./styles/sudoku.css" rel="stylesheet" />
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<body>
+  <div id="MainHeader">
+    <div id="HeaderTop">
+      <h1>FREDO GONZALEZ</h1>
+      <p>FULLSTACK DEVELOPER</p>
+    </div>
+    <div id="HeaderBottom">
+      <!-- <h4 id="SamplesButton" class="menuToggle active">SAMPLES</h4>
+      <h4 id="AboutButton" class="menuToggle link">ABOUT</h4> -->
+      <h4 class="menuToggle link">ABOUT</h4>
+    </div>
+  </div>
+  <div id="ProjectMain" class="mainContainer">
+    <div id="LandingContainer">
+      <div id="ParallaxContainer"></div>
+      <div id="ProjectContainer">
+        <div id="ProjectContainerHeader">
+          SAMPLES
+        </div>
+        <div id="ProjectContainerContent">
+          <!-- 
+
+
+
+
+
+ -->
+          <div id="ChatTile" class="projectTile">
+            <div class="ChatFlipper flipper">
+              <div id="ChatTileFront">
+                <div id="ChatHeader">
+                  <div id="PublicDisclosure">
+                    THIS CHATROOM IS PUBLIC
+                  </div>
+                  <div id="OnlineCountContainer">LOBBY COUNT: 0</div>
+                </div>
+                <div id="MessageContainer">
+                  <!-- <div class="OtherUserMessageContainer messageContainer">
+                  <div class="otherUserMessage textMessage">
+                    <p>testing some styles man?</p>
+                  </div>
+                  <div class="otherUsernameContainer"><p>Billy</p></div>
+                </div> -->
+                  <!-- <div class="ThisUserMessageContainer messageContainer">
+                  <div class="thisUserMessage textMessage">
+                    <p>
+                      howdy howdy howdy howdy howdy howdy howdy howdy howdy
+                      howdy howdy howdy howdy howdy howdy howdy howdy howdy
+                      howdy howdy howdy howdy howdy howdy howdy howdy howdy
+                      howdy
+                    </p>
+                  </div>
+                  <div class="thisUsernameContainer"><p>you</p></div>
+                </div> -->
+                  <!-- <div class="userJoinedContainer">
+                  <p>dude has joined the chat</p>
+                </div> -->
+                </div>
+                <div id="SendContainer">
+                  <div id="TypingContainer">
+                    <div class="ellipseBubble"></div>
+                    <div class="ellipseBubble"></div>
+                    <div class="ellipseBubble"></div>
+                  </div>
+                  <div id="InputContainer">
+                    <input id="UserInput" />
+                  </div>
+                  <div id="SendButton"></div>
+                </div>
+
+                <div id="EnterNameContainer">
+                  <div id="EnterNameHeader">
+                    <h4 id="EnterNameTitle">CREATE NAME TO ENTER CHAT ROOM</h4>
+                  </div>
+                  <div id="NameInputContainer">
+                    <input id="EnterNameInput" />
+                    <div id="CreateNameButton">ENTER</div>
+                  </div>
+                </div>
+              </div>
+              <div id="ChatTileBack" class="tileHidden">
+                <div class="TileBackHeader">
+                  CHAT TILE
+                  <hr>
+                </div>
+                <div class="TileBackBody">
+                  <p>
+                    this tile is an instant messaging app using websockets
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    it listens for lobby changes, and
+                    displays an animation when other users type
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    everyone on this website is in the same lobby
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    messages sent through this are appended to the HTML
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="ChatTileInfoButton" class="infoButton"></div>
+          </div>
+          <!--             
+
+
+
+
+
+
+
+
+
+
+             -->
+          <div id="SudokuTile" class="projectTile">
+            <div class="SudokuFlipper flipper">
+              <div id="SudokuTileFront">
+                <canvas id="ConfettiCanvas"></canvas>
+                <div id="SudokuHeader">
+                  <div id="ColorSwitch">
+                    <!-- <div id="ColorSwitchToggle"></div> -->
+                    <p id="SudokuTimer">00:00</p>
+                  </div>
+                  <div id="AnswerIndicator"></div>
+                  <div id="NewGameButton">
+                    <p>NEW</p>
+                  </div>
+                </div>
+                <div id="SudokuGridContainer">
+                  <div id="SudokuBoard">
+                    <div class="sudokuOuterRow">
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r0 c0 u0 r0c0"></div>
+                          <div class="sudokuInput r0 c1 u0 r0c1"></div>
+                          <div class="sudokuInput r0 c2 u0 r0c2"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r1 c0 u0 r1c0"></div>
+                          <div class="sudokuInput r1 c1 u0 r1c1"></div>
+                          <div class="sudokuInput r1 c2 u0 r1c2"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r2 c0 u0 r2c0"></div>
+                          <div class="sudokuInput r2 c1 u0 r2c1"></div>
+                          <div class="sudokuInput r2 c2 u0 r2c2"></div>
+                        </div>
+                      </div>
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r0 c3 u1 r0c3"></div>
+                          <div class="sudokuInput r0 c4 u1 r0c4"></div>
+                          <div class="sudokuInput r0 c5 u1 r0c5"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r1 c3 u1 r1c3"></div>
+                          <div class="sudokuInput r1 c4 u1 r1c4"></div>
+                          <div class="sudokuInput r1 c5 u1 r1c5"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r2 c3 u1 r2c3"></div>
+                          <div class="sudokuInput r2 c4 u1 r2c4"></div>
+                          <div class="sudokuInput r2 c5 u1 r2c5"></div>
+                        </div>
+                      </div>
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r0 c6 u2 r0c6"></div>
+                          <div class="sudokuInput r0 c7 u2 r0c7"></div>
+                          <div class="sudokuInput r0 c8 u2 r0c8"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r1 c6 u2 r1c6"></div>
+                          <div class="sudokuInput r1 c7 u2 r1c7"></div>
+                          <div class="sudokuInput r1 c8 u2 r1c8"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r2 c6 u2 r2c6"></div>
+                          <div class="sudokuInput r2 c7 u2 r2c7"></div>
+                          <div class="sudokuInput r2 c8 u2 r2c8"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sudokuOuterRow">
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r3 c0 u3 r3c0"></div>
+                          <div class="sudokuInput r3 c1 u3 r3c1"></div>
+                          <div class="sudokuInput r3 c2 u3 r3c2"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r4 c0 u3 r4c0"></div>
+                          <div class="sudokuInput r4 c1 u3 r4c1"></div>
+                          <div class="sudokuInput r4 c2 u3 r4c2"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r5 c0 u3 r5c0"></div>
+                          <div class="sudokuInput r5 c1 u3 r5c1"></div>
+                          <div class="sudokuInput r5 c2 u3 r5c2"></div>
+                        </div>
+                      </div>
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r3 c3 u4 r3c3"></div>
+                          <div class="sudokuInput r3 c4 u4 r3c4"></div>
+                          <div class="sudokuInput r3 c5 u4 r3c5"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r4 c3 u4 r4c3"></div>
+                          <div class="sudokuInput r4 c4 u4 r4c4"></div>
+                          <div class="sudokuInput r4 c5 u4 r4c5"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r5 c3 u4 r5c3"></div>
+                          <div class="sudokuInput r5 c4 u4 r5c4"></div>
+                          <div class="sudokuInput r5 c5 u4 r5c5"></div>
+                        </div>
+                      </div>
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r3 c6 u5 r3c6"></div>
+                          <div class="sudokuInput r3 c7 u5 r3c7"></div>
+                          <div class="sudokuInput r3 c8 u5 r3c8"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r4 c6 u5 r4c6"></div>
+                          <div class="sudokuInput r4 c7 u5 r4c7"></div>
+                          <div class="sudokuInput r4 c8 u5 r4c8"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r5 c6 u5 r5c6"></div>
+                          <div class="sudokuInput r5 c7 u5 r5c7"></div>
+                          <div class="sudokuInput r5 c8 u5 r5c8"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sudokuOuterRow">
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r6 c0 u6 r6c0"></div>
+                          <div class="sudokuInput r6 c1 u6 r6c1"></div>
+                          <div class="sudokuInput r6 c2 u6 r6c2"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r7 c0 u6 r7c0"></div>
+                          <div class="sudokuInput r7 c1 u6 r7c1"></div>
+                          <div class="sudokuInput r7 c2 u6 r7c2"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r8 c0 u6 r8c0"></div>
+                          <div class="sudokuInput r8 c1 u6 r8c1"></div>
+                          <div class="sudokuInput r8 c2 u6 r8c2"></div>
+                        </div>
+                      </div>
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r6 c3 u7 r6c3"></div>
+                          <div class="sudokuInput r6 c4 u7 r6c4"></div>
+                          <div class="sudokuInput r6 c5 u7 r6c5"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r7 c3 u7 r7c3"></div>
+                          <div class="sudokuInput r7 c4 u7 r7c4"></div>
+                          <div class="sudokuInput r7 c5 u7 r7c5"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r8 c3 u7 r8c3"></div>
+                          <div class="sudokuInput r8 c4 u7 r8c4"></div>
+                          <div class="sudokuInput r8 c5 u7 r8c5"></div>
+                        </div>
+                      </div>
+                      <div class="sudokuUnit">
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r6 c6 u8 r6c6"></div>
+                          <div class="sudokuInput r6 c7 u8 r6c7"></div>
+                          <div class="sudokuInput r6 c8 u8 r6c8"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r7 c6 u8 r7c6"></div>
+                          <div class="sudokuInput r7 c7 u8 r7c7"></div>
+                          <div class="sudokuInput r7 c8 u8 r7c8"></div>
+                        </div>
+                        <div class="sudokuInnerRow">
+                          <div class="sudokuInput r8 c6 u8 r8c6"></div>
+                          <div class="sudokuInput r8 c7 u8 r8c7"></div>
+                          <div class="sudokuInput r8 c8 u8 r8c8"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="SudokuNumbersContainer">
+                  <div class="sudokuNumberButton" data-val="1">1</div>
+                  <div class="sudokuNumberButton" data-val="2">2</div>
+                  <div class="sudokuNumberButton" data-val="3">3</div>
+                  <div class="sudokuNumberButton" data-val="4">4</div>
+                  <div class="sudokuNumberButton" data-val="5">5</div>
+                  <div class="sudokuNumberButton" data-val="6">6</div>
+                  <div class="sudokuNumberButton" data-val="7">7</div>
+                  <div class="sudokuNumberButton" data-val="8">8</div>
+                  <div class="sudokuNumberButton" data-val="9">9</div>
+                </div>
+                <div id="SudokuTimerContainer"></div>
+              </div>
+              <div id="SudokuTileBack" class="tileHidden">
+                <div class="TileBackHeader">
+                  SUDOKU TILE
+                  <hr>
+                </div>
+                <div class="TileBackBody">
+                  <p>
+                    this tile implements recursion and backtracking
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    all puzzles have a unique solve
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    after solving, a confetti particle engine is triggered,
+                    the particle engine uses JavaScript and the HTML canvas
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    the puzzle on load is 'very easy', to trigger the animation faster
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    the 'new' button will create a more difficult puzzle
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="SudokuTileInfoButton" class="infoButton"></div>
+          </div>
+          <!-- 
+
+
+
+
+
+
+
+
+             -->
+          <div id="PincodeTile" class="projectTile">
+            <div class="PincodeFlipper flipper">
+              <div id="PincodeTileFront">
+                <div id="PincodeHeader">
+                  <p id="CodeContainer">1234</p>
+                </div>
+                <div id="PincodeVisuals">
+                  <div id="EnterPasscodeContainer">
+                    <p>Enter Passcode</p>
+                  </div>
+                  <div id="PincodeDotsContainer">
+                    <div class="pincodeDot"></div>
+                    <div class="pincodeDot"></div>
+                    <div class="pincodeDot"></div>
+                    <div class="pincodeDot"></div>
+                  </div>
+                </div>
+                <div id="PincodeButtons">
+                  <div>
+                    <div class="pincodeButton" data-val="1">
+                      <p>1</p>
+                    </div>
+                    <div class="pincodeButton" data-val="2">
+                      <p>2</p>
+                    </div>
+                    <div class="pincodeButton" data-val="3">
+                      <p>3</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pincodeButton" data-val="4">
+                      <p>4</p>
+                    </div>
+                    <div class="pincodeButton" data-val="5">
+                      <p>5</p>
+                    </div>
+                    <div class="pincodeButton" data-val="6">
+                      <p>6</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pincodeButton" data-val="7">
+                      <p>7</p>
+                    </div>
+                    <div class="pincodeButton" data-val="8">
+                      <p>8</p>
+                    </div>
+                    <div class="pincodeButton" data-val="9">
+                      <p>9</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pincodeButton" data-val="0">
+                      <p>0</p>
+                    </div>
+                  </div>
+                </div>
+                <div id="PincodeFooter">
+                  <p id="DeletePincode">Delete</p>
+                </div>
+              </div>
+              <div id="PincodeTileBack" class="tileHidden">
+                <div class="TileBackHeader">
+                  PINCODE TILE
+                  <hr>
+                </div>
+                <div class="TileBackBody">
+                  <p>
+                    this tile is a static recreation of the iOS pincode
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    there is a shake animation when entering the pincode incorrectly
+                  </p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>
+                    I recreated this as a fan of animations being combined with technology
+                  </p>
+                  <br>
+                </div>
+              </div>
+            </div>
+            <div id="PincodeTileInfoButton" class="infoButton"></div>
+
+          </div>
+          <!-- 
+
+           -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="AboutMain" class="mainContainer inactive">
+    <div id="AboutContainer">
+      <div id="ShortSummary">
+        <p>
+          I have been teaching myself how to program since 2014, I attended a technical college
+          for web design and development from January 2018 - May 2019. when i'm not developing software, I like to
+          rockclimb, ski, and snowboard.
+        </p>
+        <p>
+          this website is a single page web application, built with
+          javascript, html, css, websockets, node.js and express, running on a
+          linux server.
+        </p>
+      </div>
+      <a id="ResumeDownloadButton" href="./Resume2019.pdf" download>
+        DOWNLOAD MY RESUME
+      </a>
+      <div id="EmailFormContainer">
+        <div id="ContactHeader">CONTACT ME</div>
+        <div class="emailVisual">YOUR EMAIL</div>
+        <input id="EmailInput" type="email" />
+        <div class="contentVisual">YOUR MESSAGE</div>
+        <textarea id="ContentInput" cols="56" rows="15"></textarea>
+        <div id="SubmitFormButton">SUBMIT</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var createNameButton = document.getElementById("CreateNameButton");
+      var username = "paula deen";
+      var userObj = {
+        username: "paula deen",
+        user_id: randomID()
+      };
+      var socket = io();
+      var sendButton = document.getElementById("sendButton");
+      var userInput = document.getElementById("UserInput");
+      var messageContainer = document.getElementById("MessageContainer");
+      SendButton.addEventListener("click", function () {
+        sendMessage();
+      });
+
+      function randomID() {
+        return Math.floor(Math.random() * 999999) + 111111;
+      }
+
+      function sendMessage() {
+        let userMessage = {
+          user: userObj.username,
+          msg: userInput.value
+        };
+        if (userMessage.msg.replace(/\s/g, "").length) {
+          socket.emit("chat message", userMessage);
+          userInput.value = "";
+          messageContainer.innerHTML += `<div class="ThisUserMessageContainer messageContainer">
+              <div class="thisUserMessage textMessage">
+                <p>
+                  ${userMessage.msg}
+                </p>
+              </div>
+              <div class="thisUsernameContainer"><p>you</p></div>
+            </div>`;
+          messageContainer.scrollTop = messageContainer.scrollHeight;
+          return false;
+        }
+      }
+
+      userInput.addEventListener("keyup", function (e) {
+        socket.emit("user typing");
+        if (e.which == 13 || e.keyCode == 13) {
+          sendMessage();
+        }
+      });
+
+      socket.on("chat message", function (msg_obj) {
+        messageContainer.innerHTML += `
+          <div class="OtherUserMessageContainer messageContainer">
+              <div class="otherUserMessage textMessage">
+                <p>${msg_obj.msg}</p>
+              </div>
+              <div class="otherUsernameContainer"><p>${msg_obj.user}</p></div>
+            </div>
+            `;
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+        stopEllipses();
+      });
+
+      socket.on("user typing", function (msg) {
+        ellipsesPrompt();
+      });
+
+      // socket.on("lobby check", function() {
+      //   socket.emit("active", userObj.user_id);
+      // });
+
+      socket.on("user joined", function (username) {
+        messageContainer.innerHTML += `<div class="userJoinedContainer"><p>${username}
+            has joined the chat
+          </p></div>`;
+      });
+
+      socket.on("user left", function () {
+        messageContainer.innerHTML += `<div class="userJoinedContainer"><p>user disconnected</p></div>`;
+      });
+
+      socket.on("lobby count", function (lobby_count) {
+        document.getElementById(
+          "OnlineCountContainer"
+        ).innerHTML = `LOBBY COUNT: ${lobby_count}`;
+      });
+
+      createNameButton.addEventListener("click", createName);
+
+      document
+        .getElementById("EnterNameInput")
+        .addEventListener("keyup", function (e) {
+          if (e.keyCode == 13 || e.which == 13) {
+            createName();
+          }
+        });
+
+      function createName() {
+        let name = document.getElementById("EnterNameInput").value;
+
+        if (pincodeTried == "69") {
+          userObj.username = name;
+          document
+            .getElementById("EnterNameContainer")
+            .classList.add("hideContainer");
+
+          socket.emit("user joined", userObj);
+        } else if (
+          !name.replace(/\s/g, "").length ||
+          name.toLowerCase().includes("fredo")
+        ) {
+          document.getElementById("EnterNameInput").value = "";
+        } else {
+          userObj.username = name;
+          document
+            .getElementById("EnterNameContainer")
+            .classList.add("hideContainer");
+
+          socket.emit("user joined", userObj);
+        }
+      }
+
+      var ellipsesAnimationRunning = false;
+
+      let ellipsesAnimation;
+      let animationTimeout;
+
+      function ellipsesPrompt() {
+        if (ellipsesAnimationRunning) return;
+        ellipsesAnimationRunning = true;
+        let ellipseBubble = document.getElementsByClassName("ellipseBubble");
+        let ellipsesCount = 0;
+        ellipsesAnimation = setInterval(function () {
+          ellipsesCount++;
+          if (ellipsesCount == 4) {
+            ellipsesCount = 0;
+            for (let i = 0; i < ellipseBubble.length; i++) {
+              ellipseBubble[i].classList.remove("filledEllipses");
+            }
+          } else {
+            ellipseBubble[ellipsesCount - 1].classList.add("filledEllipses");
+          }
+        }, 200);
+
+        animationTimeout = setTimeout(function () {
+          clearInterval(ellipsesAnimation);
+          ellipsesAnimationRunning = false;
+          ellipsesCount = 0;
+          for (let i = 0; i < ellipseBubble.length; i++) {
+            ellipseBubble[i].classList.remove("filledEllipses");
+          }
+        }, 800);
+      }
+
+      function stopEllipses() {
+        let ellipseBubble = document.getElementsByClassName("ellipseBubble");
+        clearTimeout(animationTimeout);
+        clearInterval(ellipsesAnimation);
+        ellipsesAnimationRunning = false;
+        ellipsesCount = 0;
+        for (let i = 0; i < ellipseBubble.length; i++) {
+          ellipseBubble[i].classList.remove("filledEllipses");
+        }
+      }
+    })();
+  </script>
+  <script src="./js/menu.js"></script>
+  <script src="./js/pincode.js"></script>
+  <script src="./js/generateGame.js"></script>
+  <script src="./js/sudoku.js"></script>
+  <script src="./js/confetti.js"></script>
+  <script src="./js/infoButton.js"></script>
+</body>
+
+</html>

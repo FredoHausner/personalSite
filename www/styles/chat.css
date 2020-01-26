@@ -1,0 +1,283 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+#ChatTile {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+#ChatHeader {
+  width: 100%;
+  height: 12%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+#OnlineCountContainer {
+  width: 100%;
+  height: 20%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Abel", sans-serif;
+  font-size: 10px;
+  color: #494949;
+}
+
+#PublicDisclosure {
+  width: 100%;
+  height: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  color: #f08080;
+}
+
+#MessageContainer {
+  width: 96%;
+  height: 77%;
+  border-radius: 3px;
+  border: 1px solid #dcdcdc;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll !important;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#TypingContainer {
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: -25px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#TypingContainer > .ellipseBubble {
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  transition: 0.1s;
+}
+
+.filledEllipses {
+  background-color: darkgrey !important;
+}
+
+#SendContainer {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#InputContainer {
+  width: calc(100% - 50px);
+  height: 75%;
+  display: inline-flex;
+  justify-content: flex-start;
+  padding-left: 7px;
+  align-items: center;
+}
+
+#UserInput {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  width: 95%;
+  height: 20px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  padding-left: 3px;
+  padding-right: 3px;
+  color: #312e2e;
+}
+
+#UserInput:focus {
+  outline: none;
+}
+
+#SendButton {
+  width: 26px;
+  height: 26px;
+  margin-left: 5px;
+  background-image: url("../images/sendButton.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#SendButton:hover {
+  cursor: pointer;
+}
+
+.messageContainer {
+  flex-shrink: 0;
+  /* width: 100%; */
+  height: auto;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+.textMessage {
+  background-color: #e0e0e0;
+  padding: 5px 8px 5px 10px;
+  width: fit-content;
+  max-width: 80%;
+  border-radius: 8px;
+  overflow-wrap: break-word;
+}
+
+.textMessage > p {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  line-height: 18px;
+}
+
+.ThisUserMessageContainer {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.OtherUserMessageContainer {
+  width: calc(100% - 12px);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 12px;
+}
+
+.userJoinedContainer {
+  width: 100%;
+  height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px;
+}
+
+.userJoinedContainer > p {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: lightslategray;
+  font-family: "Raleway", sans-serif;
+}
+
+.otherUsernameContainer > p {
+  margin: 0;
+  margin-top: 7px;
+  margin-left: 4px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.ThisUserMessageContainer {
+  width: calc(100% - 12px);
+  padding-right: 12px;
+}
+
+.thisUserMessage {
+  align-self: flex-end;
+  background-color: #92cff561;
+}
+
+.thisUsernameContainer {
+  text-align: end;
+}
+
+.thisUsernameContainer > p {
+  margin: 0;
+  margin-top: 7px;
+  margin-right: 10px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+#EnterNameContainer {
+  border-radius: 7px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+#EnterNameHeader {
+  width: 100%;
+  height: calc(30% - 40px);
+  text-align: center;
+  padding-top: 40px;
+}
+
+#NameInputContainer {
+  width: 100%;
+  height: 30%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#EnterNameTitle {
+  font-family: "Abel", sans-serif;
+  color: #494949;
+}
+
+#EnterNameInput {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  width: 40%;
+  height: 20px;
+  text-align: center;
+  font-family: "Abel", sans-serif;
+  font-size: 18px;
+  border: 1px solid #dcdcdc;
+  color: #312e2e;
+}
+
+#EnterNameInput:focus {
+  outline: none;
+}
+
+#CreateNameButton {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  font-family: "Raleway", sans-serif;
+  color: #494949;
+}
+
+#CreateNameButton:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.hideContainer {
+  display: none !important;
+}

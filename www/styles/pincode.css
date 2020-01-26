@@ -1,0 +1,162 @@
+#PincodeTile {
+  display: inline-flex;
+  justify-content: center;
+}
+
+#PincodeHeader {
+  width: 100%;
+  height: 12%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#CodeContainer {
+  font-family: "Comfortaa", cursive;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: black;
+  margin: 0;
+  color: #666666;
+}
+
+#PincodeVisuals {
+  width: 100%;
+  height: 18%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#EnterPasscodeContainer {
+  color: #4c4c4c;
+  font-family: "Comfortaa", cursive;
+}
+
+#PincodeDotsContainer {
+  width: 26%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrongPinCode {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  10% {
+    margin-left: -15px;
+  }
+  20% {
+    margin-left: -35px;
+  }
+  30% {
+    margin-left: -10px;
+  }
+  40% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 15px;
+  }
+  60% {
+    margin-left: 0px;
+  }
+  70% {
+    margin-left: -10px;
+  }
+  80% {
+    margin-left: 5px;
+  }
+  90% {
+    margin-left: -5px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+.pincodeDot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #7f7f7f;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.filledPin {
+  background-color: #7f7f7f;
+  transition: 0.7s;
+}
+
+#PincodeButtons {
+  width: 100%;
+  height: 55%;
+  padding-top: 2%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#PincodeButtons > div {
+  width: 70%;
+  height: 25%;
+  /* border: 1px solid black; */
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.pincodeButton {
+  font-family: "Comfortaa", cursive;
+  color: #666666;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #7f7f7f;
+}
+
+.pincodeButton:active {
+  background-color: #e5e5e5ce;
+}
+
+.pincodeButton:hover {
+  cursor: pointer;
+}
+
+.pincodeButton > p {
+  margin: 0;
+  margin-bottom: -2px;
+}
+
+#PincodeFooter {
+  width: 100%;
+  height: 15%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#DeletePincode {
+  font-family: "Comfortaa", cursive;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #4c4c4c;
+  /* margin: 20px; */
+  margin: 0px 25px 32px 0;
+}
+
+#DeletePincode:hover {
+  cursor: pointer;
+}
